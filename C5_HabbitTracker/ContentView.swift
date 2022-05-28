@@ -18,17 +18,19 @@
 
 import SwiftUI
 
-struct Activity: Codable {
+struct Activity: Codable, Equatable, Identifiable {
+	var id = UUID()
 	var title : String
 	var description : String
+	var completionCounter = 0
 }
 
 
 class Activities: ObservableObject{
-	@Published var activites = [Activity](){
+	@Published var items = [Activity](){
 		//Save each entry to UserDefaults
 		didSet{
-			if let encoded = try? JSONEncoder().encode(activites){
+			if let encoded = try? JSONEncoder().encode(items){
 				UserDefaults.standard.set(encoded, forKey: "Activities")
 			}
 		}
@@ -37,7 +39,7 @@ class Activities: ObservableObject{
 		//On init we want to restore from UserDefaults and load it into activities.
 		if let savedItems = UserDefaults.standard.data(forKey: "Activities"){
 			if let decodedItems = try? JSONDecoder().decode([Activity].self, from: savedItems){
-				activites = decodedItems
+				items = decodedItems
 			}
 		}
 	}
@@ -58,11 +60,13 @@ struct ContentView: View {
 		 NavigationView{
 			 ScrollView{
 				 LazyVGrid(columns: columns){
-					 NavigationLink{
-						 //the new View for each should go here.
-						 ShowActivityView()
-					 } label: {
-						 Text("Title")
+					 ForEach(activities.items){ activity in
+						 NavigationLink{
+							 //the new View for each should go here.
+							 ShowActivityView(selectedActivity: activity, activities : activities)
+						 } label: {
+							 Text(activity.title)
+						 }
 					 }
 				 }
 			 }
@@ -76,7 +80,7 @@ struct ContentView: View {
 			 }
 		 }
 		 .sheet(isPresented: $showAddActivity) {
-			 AddActivityView()
+			 AddActivityView(activities: activities)
 		 }
     }
 }

@@ -8,13 +8,24 @@
 import SwiftUI
 
 struct ShowActivityView: View {
+	var selectedActivity : Activity
+	@ObservedObject var activities : Activities
     var body: some View {
-        Text("Activity Details")
+		 VStack{
+			 Text(selectedActivity.title)
+			 Text(selectedActivity.description)
+			 Text("Current Completion : \(selectedActivity.completionCounter)" )
+			 Button("Completed"){
+				 if let index = activities.items.firstIndex(of: selectedActivity){
+					 activities.items[index].completionCounter += 1
+				 }
+			 }
+		 }
     }
 }
 
 struct ShowActivityView_Previews: PreviewProvider {
     static var previews: some View {
-        ShowActivityView()
+		 ShowActivityView(selectedActivity: Activity(title: "TEST", description: "TEST"), activities: Activities())
     }
 }

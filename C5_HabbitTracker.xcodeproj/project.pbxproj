@@ -11,6 +11,8 @@
 		7483359E2841584D008505CD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7483359D2841584D008505CD /* ContentView.swift */; };
 		748335A02841584E008505CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7483359F2841584E008505CD /* Assets.xcassets */; };
 		748335A32841584E008505CD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 748335A22841584E008505CD /* Preview Assets.xcassets */; };
+		748335AC2841B204008505CD /* AddActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748335AB2841B204008505CD /* AddActivityView.swift */; };
+		748335AE2841B23E008505CD /* ShowActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748335AD2841B23E008505CD /* ShowActivityView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		7483359D2841584D008505CD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7483359F2841584E008505CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		748335A22841584E008505CD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		748335AB2841B204008505CD /* AddActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddActivityView.swift; sourceTree = "<group>"; };
+		748335AD2841B23E008505CD /* ShowActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowActivityView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +57,8 @@
 			children = (
 				7483359B2841584D008505CD /* C5_HabbitTrackerApp.swift */,
 				7483359D2841584D008505CD /* ContentView.swift */,
+				748335AB2841B204008505CD /* AddActivityView.swift */,
+				748335AD2841B23E008505CD /* ShowActivityView.swift */,
 				7483359F2841584E008505CD /* Assets.xcassets */,
 				748335A12841584E008505CD /* Preview Content */,
 			);
@@ -137,7 +143,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				748335AC2841B204008505CD /* AddActivityView.swift in Sources */,
 				7483359E2841584D008505CD /* ContentView.swift in Sources */,
+				748335AE2841B23E008505CD /* ShowActivityView.swift in Sources */,
 				7483359C2841584D008505CD /* C5_HabbitTrackerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
